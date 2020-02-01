@@ -43,5 +43,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [new ExtractTextPlugin('styles.css')]
+  plugins: [new ExtractTextPlugin('app.css')]
 };
