@@ -1,10 +1,12 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+var path = require('path');
+
 module.exports = {
   entry: './src/index.jsx',
   output: {
-    path: __dirname + '/public',
+    path: path.resolve(__dirname, '/public'),
     filename: './app.js'
   },
   devServer: {
@@ -12,18 +14,17 @@ module.exports = {
     contentBase: './public'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['*', '.js', '.jsx'],
     alias: {
       modules: __dirname + '/node_modules'
     }
   },
-  plugins: [new ExtractTextPlugin('app.css')],
   module: {
-    loaders: [
+    rules: [
       {
-        test: /.js[x]?$/,
-        loader: 'babel-loader',
+        test: /\.js[x]$/,
         exclude: /node_modules/,
+        loader: 'babel-loader',
         query: {
           presets: ['es2015', 'react'],
           plugins: ['transform-object-rest-spread']
@@ -31,12 +32,16 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        })
       },
       {
         test: /\.woff|.woff2|.ttf|.eot|.svg*.*$/,
-        loader: 'file'
+        loader: 'file-loader'
       }
     ]
-  }
+  },
+  plugins: [new ExtractTextPlugin('styles.css')]
 };
