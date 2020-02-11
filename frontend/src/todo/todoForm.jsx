@@ -4,7 +4,7 @@ import IconButton from '../template/iconButton';
 
 export default props => (
   <div role="form" className="todoForm">
-    <Grid cols="12 9 11">
+    <Grid cols="12 9 10">
       <input
         id="description"
         type="text"
@@ -15,12 +15,9 @@ export default props => (
       />
     </Grid>
 
-    <Grid cols="12 3 1">
-      <IconButton
-        style="primary"
-        icon="plus"
-        onClick={props.handleAdd}
-      ></IconButton>
+    <Grid cols="12 3 2">
+      <IconButton style="primary" icon="plus" onClick={props.handleAdd} />
+      <IconButton style="info" icon="search" onClick={props.handleSearch} />
     </Grid>
   </div>
 );
