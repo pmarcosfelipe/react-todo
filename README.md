@@ -30,14 +30,21 @@ It is a formation course named <b>Curso React + Redux: Fundamentos e 2 Apps do A
 - Módulo 23: Webpack [Legado] (11 aulas)
 - Módulo 24: React [Legado] (15 aulas)
 
-## Available Scripts
+## Usage
 
-In the project directory, you can run:
+To use the application, you should run in one terminal:
 
-### `npm run dev`
+```bash
+cd frontend/
+npm run dev
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+and in other terminal:
+
+```bash
+cd backend/
+npm run dev
+```
 
 ## Author
 
